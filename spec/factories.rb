@@ -2,10 +2,11 @@ FactoryGirl.define do
   factory(:question) do
     title('What is science?')
     content('So, I\'m confused. What exactly IS science? Be specific.')
+    id(1)
   end
 
   factory(:response) do
     content('It\'s like magic.  Only real.')
-    question
+    question_id(1)
   end
 end

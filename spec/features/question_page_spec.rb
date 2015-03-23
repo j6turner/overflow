@@ -16,3 +16,14 @@ require 'rails_helper'
       expect(page).to have_content 'You have failed to complete this form.'
     end
 end
+
+describe "deleting a response to a question" do
+  it "will delete a response" do
+    question = FactoryGirl.create(:question)
+    response = FactoryGirl.create(:response)
+    visit question_path(question)
+    click_on "Delete Response"
+    expect(page). to have_no_content response
+  end
+
+end

@@ -13,6 +13,15 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find(params[:question_id])
+    @response = Response.find(params[:id])
+    @response.destroy
+    flash[:notice] = "That's right you troll! Good job."
+    redirect_to question_path(@question)
+  end
+
+
 private
 
   def response_params
