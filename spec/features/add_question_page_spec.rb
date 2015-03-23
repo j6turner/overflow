@@ -6,14 +6,14 @@ describe 'the adding a question process' do
     click_on "Ask a question"
     fill_in 'Title', :with => 'What is physics?'
     fill_in 'Content', :with => 'I\'m SO CONFSED.'
-    click_on 'Add Question'
+    click_on 'Create Question'
     expect(page).to have_content 'posted'
   end
 
   it 'will alert the user if validation failed' do
     visit new_question_path
     fill_in 'Title', :with => 'What is physics?'
-    click_on 'Add Question'
+    click_on 'Create Question'
     expect(page).to have_content 'failed'
   end
 

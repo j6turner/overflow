@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   resources :questions do
-    resources :responses, :except => [:index]
+    resources :responses, :except => [:index, :new]
   end
 
 

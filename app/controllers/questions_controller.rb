@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @response = Response.new
   end
 
   def new
@@ -19,6 +20,21 @@ class QuestionsController < ApplicationController
       redirect_to '/'
     else
       flash[:alert] = "You have failed to complete your question form. Try again."
+      redirect_to :back
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      flash[:notice] = "Your question has been updated."
+      redirect_to questions_path
+    else
+      flash[:alert] = "You've completely failed. Try again."
       redirect_to :back
     end
   end

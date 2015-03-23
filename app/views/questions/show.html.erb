@@ -3,3 +3,11 @@
 <p>
   <%= @question.content %>
 </p>
+
+<%= render 'responses/form' %>
+<ul>
+
+<% @question.responses.each do |response| %>
+  <li><%= response.content %></li>
+<% end %>
+</ul>
