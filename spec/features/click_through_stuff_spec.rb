@@ -14,4 +14,11 @@ describe "link navigation" do
     click_on "SCIENCE!"
     expect(page).to have_no_content question.content
   end
+
+  it "will go to the edit page from a question's page" do
+    question = FactoryGirl.create(:question)
+    visit question_path(question)
+    click_on "Edit Question"
+    expect(page).to have_content "Edit your question"
+  end
 end

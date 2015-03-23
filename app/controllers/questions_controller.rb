@@ -39,6 +39,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    flash[:notice] = "Your question is lost to the abyss."
+    redirect_to '/'
+  end
+
 private
   def question_params
     params.require(:question).permit(:title, :content)

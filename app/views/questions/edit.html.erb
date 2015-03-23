@@ -1,1 +1,7 @@
+<h2>Edit your question</h2>
 <%= render "form" %>
+
+<%= link_to "Delete question", question_path(@question),
+                                 :data =>
+                                {:confirm => "Are you sure?",
+                                 :method => "delete"} %>

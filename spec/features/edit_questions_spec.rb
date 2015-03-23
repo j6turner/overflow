@@ -9,4 +9,19 @@ require 'rails_helper'
       expect(page).to have_content 'updated'
     end
 
+    it "will not update a question if a field is blank" do
+      question = FactoryGirl.create(:question)
+      visit edit_question_path(question)
+      fill_in 'Title', :with => ''
+      click_on 'Update Question'
+      expect(page).to have_content 'completely failed'
+    end
+
+    it "will delete question when the delete link is clicked" do
+      question = FactoryGirl.create(:question)
+      visit edit_question_path(question)
+      click_on 'Delete question'
+      expect(page).to have_no_content question
+    end
+
 end
