@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h1><%= link_to "SCIENCE! Overflow!", questions_path %></h1>
+
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 
 <%= yield %>
 
