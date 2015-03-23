@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root :to => 'questions#index'
 
-  resources :users
+  resources :users do
+    resources :questions do
+      resources :responses, :except => [:index, :new]
+    end
+  end
+  
   resources :questions do
     resources :responses, :except => [:index, :new]
   end

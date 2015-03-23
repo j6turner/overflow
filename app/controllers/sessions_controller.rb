@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.authenticate(params[:email], params[:password])
     if @user
-      flash[:notice] ="Welcome  #{@user.name}"
       session[:user_id] = @user.id
+      flash[:notice] = "Welcome #{current_user.email}"
       redirect_to "/"
     else
       flash[:alert] = "There was a problem loggin' yo' face in."
@@ -16,8 +16,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def delete
-
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/'
   end
 
 end
