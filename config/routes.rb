@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root :to => 'questions#index'
 
-
+  resources :users
   resources :questions do
     resources :responses, :except => [:index, :new]
   end
 
+  get "/log-in" => "sessions#new", as: :log_in
+  post "/log-in" => "sessions#create"
+  get "/log-out" => "sessions#destroy", as: :log_out
 
-end
+ end

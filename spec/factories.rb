@@ -9,4 +9,10 @@ FactoryGirl.define do
     content('It\'s like magic.  Only real.')
     question_id(1)
   end
+
+  factory(:user) do
+    name("Sarah James")
+    email("lol@omg.com")
+    password("1234")
+  end
 end
