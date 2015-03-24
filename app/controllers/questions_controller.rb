@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(question_params)
+    @question.update(user_id: current_user.id)
     if @question.save
       flash[:notice] = "Thank you. Your very intelligent question has been posted."
       redirect_to '/'

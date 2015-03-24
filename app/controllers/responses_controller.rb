@@ -4,6 +4,7 @@ class ResponsesController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @response = @question.responses.create(response_params)
+    @response.update(user_id: current_user.id)
     if @response.save()
       flash[:notice] = "Your response has been posted."
       redirect_to question_path(@question)

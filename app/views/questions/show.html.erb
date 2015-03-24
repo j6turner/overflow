@@ -2,6 +2,7 @@
 <%= link_to "Edit Question", edit_question_path(@question) %>
 <p>
   <%= @question.content %>
+  ~ <%= @question.user.name %>
 </p>
 
 <hr>
@@ -17,5 +18,7 @@
   </li>
 <% end %>
 </ul>
-<h4>Add a comment:</h4>
-<%= render 'responses/form' %>
+<% if current_user %>
+  <h4>Add a comment:</h4>
+  <%= render 'responses/form' %>
+<% end %>

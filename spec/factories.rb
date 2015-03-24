@@ -3,6 +3,7 @@ FactoryGirl.define do
     title('What is science?')
     content('So, I\'m confused. What exactly IS science? Be specific.')
     id(1)
+    user_id(1)
   end
 
   factory(:response) do
