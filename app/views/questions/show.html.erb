@@ -4,12 +4,12 @@
   <%= @question.content %>
 </p>
 
-<%= render 'responses/form' %>
+<hr>
+<h4>Comments:</h4>
 <ul>
-
 <% @question.responses.each do |response| %>
   <li>
-    <%= response.content %>,
+    <%= response.content %>
     <%= link_to "Delete Response", question_response_path(@question, response),
                                     :data => {
                                               :confirm => "You sure??",
@@ -17,3 +17,5 @@
   </li>
 <% end %>
 </ul>
+<h4>Add a comment:</h4>
+<%= render 'responses/form' %>

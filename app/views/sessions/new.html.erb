@@ -1,8 +1,8 @@
 <h1>LogIn</h1>
 <%= form_tag log_in_path do %>
   <%= label_tag :email %>
-  <%= text_field_tag :email %>
+  <%= text_field_tag :email, nil, class: 'form-control'  %>
   <%= label_tag :password %>
-  <%= text_field_tag :password %>
-  <%= submit_tag "Log In" %>
+  <%= text_field_tag :password, nil, class: 'form-control' %>
+  <%= submit_tag "Log In", class: 'btn btn-success' %>
 <% end %>

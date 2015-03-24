@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   attr_accessor :password
   validates_confirmation_of :password
+  validates :email, :presence => true
+  validates :name, :presence => true
+  validates :password, :presence => true
   before_save :encrypt_password
   after_create :send_welcome_message
 
