@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:notice] = "Your question has been updated."
-      redirect_to questions_path
+      redirect_to question_path(@question)
     else
       flash[:alert] = "You've completely failed. Try again."
       redirect_to :back
@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
 
 private
   def question_params
-    params.require(:question).permit(:title, :content)
+    params.require(:question).permit(:title, :content, :best_response_id)
   end
 
 end

@@ -4,22 +4,35 @@
 <% end %>
 <p>
   <%= @question.content %>
-  ~ <%= @question.user.name %>
+  ~ <%= link_to @question.user.name, user_path(@question.user) %>
 </p>
 
 <hr>
 <h4>Comments:</h4>
+
+
 <ul>
+ <% if @question.best_response %>
+  <li>Winnnner! <%= @question.best_response.content %> ~ <%= link_to @question.best_response.user.name, user_path(@question.best_response.user) %></li>
+ <% end %>
 <% @question.responses.each do |response| %>
-  <li>
-    <%= response.content %> ~ <%= response.user.name %>
-    <% if response.user == current_user %>
-      <%= link_to "Delete Response", question_response_path(@question, response),
-                                      :data => {
-                                                :confirm => "You sure??",
-                                                :method => "delete" } %>
+  <% unless response == @question.best_response %>
+    <li>
+      <%= response.content %> ~ <%= link_to response.user.name, user_path(response.user) %>
+      <% if response.user == current_user %>
+        <%= link_to "Delete Response", question_response_path(@question, response),
+                                        :data => {
+                                                  :confirm => "You sure??",
+                                                  :method => "delete" } %>
+      <% end %>
+      <% if @question.user == current_user %>
+        <%= form_for @question do |f| %>
+        <%= f.hidden_field :best_response_id, :value => response.id %>
+        <%= f.submit "best response", class: 'btn btn-info btn-xs' %>
+        <% end %>
+      <% end %>
+    </li>
     <% end %>
-  </li>
 <% end %>
 </ul>
 <% if current_user %>

@@ -41,6 +41,18 @@ describe "deleting a response to a question" do
     response.update(user_id: 2)
     sign_in(user)
     visit question_path(question)
-    expect(page).to have_no_content "Delete Response" 
+    expect(page).to have_no_content "Delete Response"
+  end
+end
+
+describe "adding best response to a response" do
+  it "will allow a user to give a best response to their question" do
+    user = FactoryGirl.create(:user)
+    sign_in(user)
+    question = FactoryGirl.create(:question)
+    response = FactoryGirl.create(:response)
+    visit question_path(question)
+    click_on "best response"
+    expect(page).to have_content "Winnnner!"
   end
 end
