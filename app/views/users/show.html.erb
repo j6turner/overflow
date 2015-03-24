@@ -1,0 +1,15 @@
+<h2><%= @user.name %>'s profile page </h2>
+
+<h3><%= @user.name %>'s Questions</h3>
+<ul>
+<% @user.questions.each do |question| %>
+  <li><%= link_to question.title, question_path(question) %></li>
+<% end %>
+</ul>
+
+<h3><%= @user.name %>'s Responses</h3>
+<ul>
+<% @user.responses.each do |response| %>
+  <li><%= link_to response.content, question_path(response.question) %></li>
+<% end %>
+</ul>
