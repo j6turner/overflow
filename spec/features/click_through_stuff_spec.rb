@@ -16,6 +16,8 @@ describe "link navigation" do
   end
 
   it "will go to the edit page from a question's page" do
+    user = FactoryGirl.create(:user)
+    sign_in(user)
     question = FactoryGirl.create(:question)
     visit question_path(question)
     click_on "Edit Question"

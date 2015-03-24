@@ -1,5 +1,7 @@
 <h2><%= @question.title %></h2>
-<%= link_to "Edit Question", edit_question_path(@question) %>
+<% if @question.user == current_user %>
+  <%= link_to "Edit Question", edit_question_path(@question) %>
+<% end %>
 <p>
   <%= @question.content %>
   ~ <%= @question.user.name %>
@@ -10,11 +12,13 @@
 <ul>
 <% @question.responses.each do |response| %>
   <li>
-    <%= response.content %>
-    <%= link_to "Delete Response", question_response_path(@question, response),
-                                    :data => {
-                                              :confirm => "You sure??",
-                                              :method => "delete" } %>
+    <%= response.content %> ~ <%= response.user.name %>
+    <% if response.user == current_user %>
+      <%= link_to "Delete Response", question_response_path(@question, response),
+                                      :data => {
+                                                :confirm => "You sure??",
+                                                :method => "delete" } %>
+    <% end %>
   </li>
 <% end %>
 </ul>

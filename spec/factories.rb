@@ -9,6 +9,7 @@ FactoryGirl.define do
   factory(:response) do
     content('It\'s like magic.  Only real.')
     question_id(1)
+    user_id(1)
   end
 
   factory(:user) do
