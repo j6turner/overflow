@@ -6,3 +6,39 @@ img {
   width: 300px;
   height: 400px;
 }
+
+.newton {
+  background-image: url('hunky_newton.jpg');
+  background-size: cover;
+  height: 300px;
+  width: 200px
+
+}
+
+.lovelace {
+  background-image: url('hunky_lovelace.jpg');
+  background-size: cover;
+  height: 300px;
+  width: 200px;
+  // position: absolute;
+  // right: 0;
+}
+
+.alert {
+  background-image: url('redBubble.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+}
+
+.notice {
+  background-image: url('green_bubble.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  padding: 15px;
+}
