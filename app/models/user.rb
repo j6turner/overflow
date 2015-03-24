@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
   attr_accessor :password
   validates_confirmation_of :password
   before_save :encrypt_password
+  after_create :send_welcome_message
+
+  def send_welcome_message
+    ScienceMailer.signup_confirmation(self).deliver
+  end
 
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt

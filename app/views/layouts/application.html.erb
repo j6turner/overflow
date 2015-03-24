@@ -15,15 +15,15 @@
         <% if current_user %>
            <!-- link_to current_user.username, user_path(current_user.id) %> -->
            Hi <%= current_user.name %>!
-          <%= link_to "Log Out", log_out_path %>
+          <%= link_to "log out", log_out_path %>
         <% else %>
-          <%= link_to "New User", new_user_path %>
-          <%= link_to "Log In", log_in_path %>
+          <%= link_to "new user", new_user_path %>
+          <%= link_to "log in", log_in_path %>
         <% end %>
 
         <h3></h3>
         <%= image_tag("hunky_newton.jpg", :alt => "newton") %>
-        <%= image_tag("hunky_lovelace.jpg", :alt => "newton") %>
+        <%= image_tag("hunky_lovelace.jpg", :alt => "lovelace") %>
         <%= flash[:notice] %>
         <%= flash[:alert] %>
       </div>
