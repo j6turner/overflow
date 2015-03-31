@@ -15,6 +15,6 @@ FactoryGirl.define do
   factory(:user) do
     name("Sarah James")
     email("lol@omg.com")
-    password("1234")
+    password("12345678")
   end
 end

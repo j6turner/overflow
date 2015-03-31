@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'bcrypt', '~> 3.1.7', require: 'bcrypt'
+gem 'devise'
 
 group :development do
   gem 'byebug'
@@ -21,6 +22,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'letter_opener'
@@ -29,4 +31,5 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'poltergeist'
 end
