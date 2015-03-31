@@ -4,3 +4,8 @@ def sign_in(user)
   fill_in 'Password', :with => user.password
   click_on "Log In"
 end
+
+def add_response(response)
+  fill_in 'Content', :with => response.content
+  click_on "Add Response"
+end

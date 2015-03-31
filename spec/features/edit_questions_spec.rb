@@ -27,20 +27,15 @@ end
 
 describe "only let users edit their own questions" do
   it "will show Edit Question if signed in" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
     question = FactoryGirl.create(:question)
+    sign_in(question.user)
     visit question_path(question)
     expect(page).to have_content "Edit Question"
   end
 
   it "will not show Edit Question if not user's question" do
     user = FactoryGirl.create(:user)
-    user1 = FactoryGirl.create(:user)
-    user1.update(id: 2, name: "Not the other guy")
-    sign_in(user)
     question = FactoryGirl.create(:question)
-    question.update(user_id: 2)
     visit question_path(question)
     expect(page).to have_no_content "Edit Question"
   end

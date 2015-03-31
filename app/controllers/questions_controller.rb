@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
 
 private
   def question_params
-    params.require(:question).permit(:title, :content, :best_response_id)
+    params.require(:question).permit(:title, :content, :best_response_id, :user_id)
   end
 
 end

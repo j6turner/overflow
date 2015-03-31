@@ -224,6 +224,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
   letter_opener
   pg
   poltergeist

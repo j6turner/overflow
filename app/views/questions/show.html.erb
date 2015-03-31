@@ -4,7 +4,7 @@
 <% end %>
 <p>
   <%= @question.content %>
-  ~ <%= link_to @question.user.name, user_path(@question.user) %>
+  ~ <%= link_to @question.user.email, user_path(@question.user) %>
 </p>
 
 <hr>
@@ -13,12 +13,12 @@
 
 <ul>
  <% if @question.best_response %>
-  <li>Winnnner! <%= @question.best_response.content %> ~ <%= link_to @question.best_response.user.name, user_path(@question.best_response.user) %></li>
+  <li>Winnnner! <%= @question.best_response.content %> ~ <%= link_to @question.best_response.user.email, user_path(@question.best_response.user) %></li>
  <% end %>
 <% @question.responses.each do |response| %>
   <% unless response == @question.best_response %>
     <li>
-      <%= response.content %> ~ <%= link_to response.user.name, user_path(response.user) %>
+      <%= response.content %> ~ <%= link_to response.user.email, user_path(response.user) %>
       <% if response.user == current_user %>
         <%= link_to "Delete Response", question_response_path(@question, response),
                                         :data => {

@@ -26,6 +26,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'letter_opener'
+  gem 'launchy'
 end
 
 group :test do

@@ -8,6 +8,6 @@ describe "adding a user to the site" do
     fill_in 'Password', :with => '12345678'
     fill_in 'Password confirmation', :with => '12345678'
     click_on 'Sign up'
-    expect(page).to have_content "Welcome Sarah James"
+    expect(page).to have_content "You have signed up successfully."
   end
 end
