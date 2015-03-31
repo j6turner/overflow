@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   after_create :send_welcome_message
 
   def send_welcome_message
-    ScienceMailer.signup_confirmation(self).deliver
+    # ScienceMailer.signup_confirmation(self).deliver
   end
 
   def encrypt_password
