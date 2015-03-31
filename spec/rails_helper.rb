@@ -15,17 +15,17 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
 
-    config.before(:suite) do
+  config.before(:suite) do
     DatabaseCleaner.clean_with :truncation
     DatabaseCleaner.strategy = :transaction
   end
 
-    config.around(:each) do |example|
-      DatabaseCleaner.cleaning do
-        example.run
-      end
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
     end
+  end
 
-  # config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
 end
